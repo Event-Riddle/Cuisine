@@ -1,0 +1,213 @@
+<div class="navbar navbar-static-top" style="background-color:#1A242D;">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".main-nav">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                </button>
+        </div>
+        <div class="collapse navbar-collapse main-nav">
+
+            <div class="row">
+                <div ng-repeat='tool in cont.toolbar' gm-on-drop='cont.getDropHandler(tool)'>
+                    <div style='min-height:50px'>
+
+
+                        <div class="col-md-12 col-sm-12 ">
+                            <div class="col-md-3 col-sm-3  " ng-repeat='item in tool.items'>
+                                <span style="width:100%; margin:10px; " class=" actionButton" gm-draggable='{ category: tool, item: item }' title="Drag me to the Pipeline!">
+                              {{item.name}}
+                            </span>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class=''>
+
+
+    <div class="row">
+        <div class="col-md-12">
+
+
+            <svg ng-style="cont.svgStyle" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="2" style="position: absolute; z-index: 1; top: 45px; display:block;" xml:space="preserve">
+
+            <path id="line1"   class="path" fill="#FFFFFF" stroke="#000000" stroke-width="4" stroke-miterlimit="10" d="M55, 0 H800 0"/>
+
+          </svg>
+            <div class="row">
+
+                <div class="col-md-2" style=" z-index:3;">
+                    <!-- <div id="gate" class="card card-inverse card-danger text-xs-center">
+                        <div class="card-block">
+                            <blockquote class="card-blockquote">
+                                <p>Gateway</p>
+                                <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                            </blockquote>
+                        </div>
+                    </div> -->
+                    <div id="gate" class=" gateButton pulse" style="width: 100%; height: 87px; margin-bottom:20px">
+                        Gateway
+                    </div>
+                </div>
+
+
+
+                <div class="col-md-8 ">
+                    <div class='panel bus-container'>
+
+
+                        <div class="panel-body">
+
+
+                            <div class="row">
+
+                                <div ng-repeat='chainItem in cont.chain' gm-on-drop='cont.getDropHandler(chainItem)'>
+
+                                    <!-- <div ng-show="!cont.categories2.length">No events</div> -->
+                                    <div ng-hide="cont.chain[0].items.length" style="text-align:center; color: white;">Pipeline please drag and drop services</div>
+                                    <div class="col-md-12 col-sm-12" style="min-height:45px">
+                                        <div class="col-md-3 col-sm-3" ng-repeat="item in chainItem.items " style="z-index:3;">
+
+                                            <div class="btn-group btn-group-justified" style="margin:10px">
+
+                                                <span class=" actionButton" gm-draggable='{ category: chainItem, item: item }'>  {{item.name}} </span>
+                                                <a ui-sref="detail({ serviceName: item.name })" class=" actionButton"><span class="fa fa-pencil fa-3"></span></a>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div id="wsk" class="col-md-2 " style=" z-index:3;">
+                    <div class=" gateButton pulse" style="width: 100%; height: 87px; margin-bottom:20px;">
+                        OpenWhisk
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<style>
+    .bus-container {
+        background-color: transparent;
+        border: 2px dashed #fff;
+    }
+
+    .pulse {
+        animation: pulse 2s infinite;
+    }
+
+    .pulse:hover {
+        animation: none;
+    }
+
+    @-webkit-keyframes pulse {
+        0% {
+            -webkit-box-shadow: 0 0 0 0 rgba(0, 184, 159, 0.51);
+        }
+        70% {
+            -webkit-box-shadow: 0 0 0 10px rgba(0, 184, 159, 0.51);
+        }
+        100% {
+            -webkit-box-shadow: 0 0 0 0 rgba(0, 184, 159, 0.51);
+        }
+    }
+
+    @keyframes pulse {
+        0% {
+            -moz-box-shadow: 0 0 0 0 rgba(0, 184, 159, 0.51);
+            box-shadow: 0 0 0 0 rgba(0, 184, 159, 0.51);
+        }
+        50% {
+            -moz-box-shadow: 0 0 0 5px rgba(0, 184, 159, 0.51);
+            box-shadow: 0 0 0 5px rgba(0, 184, 159, 0.51);
+        }
+        100% {
+            -moz-box-shadow: 0 0 0 10px rgba(0, 184, 159, 0.51);
+            box-shadow: 0 0 0 10px rgba(0, 184, 159, 0.58);
+            border-radius: 2px;
+        }
+    }
+
+    .path {
+        stroke-dasharray: 20;
+        animation: dash 10s linear infinite;
+    }
+
+    @keyframes dash {
+        to {
+            stroke-dashoffset: 1000;
+        }
+    }
+
+    .actionButton {
+        text-align: center;
+        text-transform: uppercase;
+        background: #5eacf7;
+        color: #26333e;
+        font-size: 14px;
+        cursor: pointer;
+        height: 40px;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-align: center;
+        -moz-box-align: center;
+        -o-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -moz-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        font-weight: 700;
+    }
+
+    .gateButton {
+        text-align: center;
+        text-transform: uppercase;
+        background: #00B299;
+        color: #fff;
+        font-size: 14px;
+        cursor: pointer;
+        height: 40px;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-align: center;
+        -moz-box-align: center;
+        -o-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -moz-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        font-weight: 700;
+    }
+</style>

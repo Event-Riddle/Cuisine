@@ -1,0 +1,49 @@
+body {
+    background-color: #4b515d;
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+.pulse:hover {
+    animation: none;
+}
+
+@-webkit-keyframes pulse {
+    0% {
+        -webkit-box-shadow: 0 0 0 0 rgba(244, 67, 45, 0.7);
+    }
+    70% {
+        -webkit-box-shadow: 0 0 0 10px rgba(244, 67, 45, 0.7);
+    }
+    100% {
+        -webkit-box-shadow: 0 0 0 0 rgba(244, 67, 45, 0.7);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        -moz-box-shadow: 0 0 0 0 rgba(244, 67, 45, 0.7);
+        box-shadow: 0 0 0 0 rgba(244, 67, 45, 0.7);
+    }
+    50% {
+        -moz-box-shadow: 0 0 0 5px rgba(244, 67, 45, 0.7);
+        box-shadow: 0 0 0 5px rgba(244, 67, 45, 0.7);
+    }
+    100% {
+        -moz-box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);
+        box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);
+    }
+}
+
+.path {
+    stroke-dasharray: 20;
+    animation: dash 10s linear infinite;
+}
+
+@keyframes dash {
+    to {
+        stroke-dashoffset: 1000;
+    }
+}
