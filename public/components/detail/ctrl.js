@@ -7,13 +7,13 @@
         var detail = this;
         var urlUser = '';
         detail.items = [];
-
-        // switch ($stateParams.serviceName) {
-        //   case "filter":
-        //     urlUser = 'http://riddle-api.mybluemix.net/api/v1/config/filter';
-        //     break;
-        //   default:
-        // }
+        detail.greet = "julz";
+        switch ($stateParams.serviceName) {
+          case "filter":
+            urlUser = 'http://riddle-api.mybluemix.net/api/v1/config/filter';
+            break;
+          default:
+        }
 
         APIService.api.getConfig({
 
@@ -26,28 +26,28 @@
               console.log(JSON.stringify(obj.data));
         });
 
-      //   if (urlUser !== 'undefined') {
-      //     // your code her
-      //
-      //   $http.get(urlUser).
-      //          then(function(response) {
-      //
-      //
-      //   angular.forEach(response.data, function(config, key) {
-      //
-      //     detail.items.push({
-      //       inlineChecked: false,
-      //       name: config.name,
-      //       threshold: config.threshold,
-      //       tresholdtop: config.threshold-top,
-      //       unit:config.unit,
-      //       questionPlaceholder: "name"
-      //     });
-      //
-      //
-      //   });
-      //
-      // })}
+        if (urlUser !== 'undefined') {
+          // your code her
+
+        $http.get(urlUser).
+               then(function(response) {
+
+
+        angular.forEach(response.data, function(config, key) {
+
+          detail.items.push({
+            inlineChecked: false,
+            name: config.name,
+            threshold: config.threshold,
+            tresholdtop: config["treshold-top"],
+            unit:config.unit,
+            questionPlaceholder: "name"
+          });
+
+
+        });
+
+      })}
                detail.submitForm = function() {
 
               }
