@@ -15,12 +15,15 @@
           default:
         }
 
+        if (urlUser !== 'undefined') {
+          // your code here
+
         $http.get(urlUser).
                then(function(response) {
-                    console.log(response.data);
+
 
         angular.forEach(response.data, function(config, key) {
-          console.log(config);
+
           detail.items.push({
             inlineChecked: false,
             name: config.name,
@@ -33,13 +36,13 @@
 
         });
 
-               });
+      })}
                detail.submitForm = function() {
 
               }
 
              detail.add = function () {
-               console.log(detail.items);
+
                detail.items.push({
                  inlineChecked: false,
                  name: "",
@@ -53,6 +56,6 @@
         detail.serviceName = $stateParams.serviceName;
         detail.param1 = $stateParams.param1;
         detail.param2 = $stateParams.param2;
-        console.log(detail.items);
+
       }
 })();
