@@ -5,7 +5,7 @@
     'ui.router.stateHelper',
     'gm.dragDrop',
     'ngSanitize',
-
+    'ngResource'
   ]);
 })();
 
