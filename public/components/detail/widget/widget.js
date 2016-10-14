@@ -2,14 +2,14 @@
     'use strict';
     angular
         .module('riddle.detail')
-        .directive('hello', hello);
+        .directive('formFilter', formFilter);
 
-    function hello() {
+    function formFilter() {
 
   		return {
   			restrict: 'EA',
   			scope: {
-          greet: '@greet',
+          item: '=formItem',
           someArray: '@array'
   			},
         templateUrl: 'components/detail/widget/widget.html',

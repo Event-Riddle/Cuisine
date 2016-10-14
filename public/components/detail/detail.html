@@ -1,9 +1,5 @@
-
-
 <div class=" ng-scope">
     <!-- ui-view-anchor -->
-
-
 
     <div class="row ">
 
@@ -35,65 +31,12 @@
 
 
             <div ui-view=" ">
-<hello greet="{{detail.greet}}"></hello>
+
                 <div class="row riddel-detail-row">
-                    <!-- <p ng-bind-html="detail.myHTML"></p> -->
-                    <div ng-repeat="item in detail.items ">
-                        <div class="col-md-12 col-sm-6 col-xs-12">
-                            <div class="panel material-panel">
-                                <div class="panel-heading clearfix material-panel-heading">
 
-                                    <h3 class="panel-title">{{detail.serviceName}}</h3>
-                                </div>
+                    <div ng-repeat="item in detail.items">
 
-                                <div class="panel-body">
-                                    <form class=" row-border" action="#">
-
-                                        <div class="form-group ">
-
-                                            <div class="form-group row">
-                                                <label for="example-text-input" class="col-xs-2 col-form-label">name</label>
-                                                <div class="col-xs-10">
-                                                    <input class="form-control material-input" type="text " placeholder="{{item.questionPlaceholder}} " ng-model="item.name ">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="example-text-input" class="col-xs-2 col-form-label">treshold</label>
-                                                <div class="col-xs-10">
-                                                    <input class="form-control material-input" ng-class="{ 'blockInput': !item.inlineChecked} " type="text " placeholder="threshold" ng-model="item.threshold ">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="example-text-input" class="col-xs-2 col-form-label">treshold-top</label>
-                                                <div class="col-xs-10">
-                                                    <input class="form-control material-input" ng-class="{ 'blockInput': !item.inlineChecked} " type="text " placeholder="treshold-top" ng-model="item.tresholdtop ">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="example-text-input" class="col-xs-2 col-form-label">unit</label>
-                                                <div class="col-xs-10">
-                                                    <input class="form-control material-input" ng-class="{ 'blockInput': !item.inlineChecked} " type="text " placeholder="unit" ng-model="item.unit ">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="example-text-input" class="col-xs-2 col-form-label">active</label>
-                                                <div class="col-xs-10">
-                                                    <input class="form-control material-input" type="checkbox" name="check " value="inline " ng-model="item.inlineChecked ">
-                                                </div>
-                                            </div>
-
-
-
-
-
-
-
-                                        </div>
-
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+                        <form-filter form-item="item"></form-filter>
                     </div>
                 </div>
 
@@ -113,7 +56,8 @@
                 <h4 class="modal-title" id="myModalLabel">{{detail.serviceName}}</h4>
             </div>
             <div class="modal-body">
-                <form class="frow-border" action="#">
+                <form-filter form-item="item"></form-filter>
+                <!-- <form class="frow-border" action="#">
 
                     <div class="form-group ">
                         <div class="form-group">
@@ -126,12 +70,9 @@
                         </div>
 
                     </div>
-
-
-
-                </form>
+                </form> -->
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer" style="border-top:none">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary" ng-click="detail.add()" data-dismiss="modal">Save changes</button>
             </div>
@@ -185,19 +126,6 @@
         margin: 0px;
         line-height: 35px;
         cursor: pointer;
-        /*
-    .collapsed{
-       .arrow:before{
-                 font-family: FontAwesome;
-                 content: "\f053 ";
-                 display: inline-block;
-                 padding-left:10px;
-                 padding-right: 10px;
-                 vertical-align: middle;
-                 float:right;
-            }
-     }
-*/
     }
 
     .nav-side-menu ul :not(collapsed) .arrow:before,
@@ -336,6 +264,7 @@
         background-color: #3299FA !important;
         border-color: #3299FA !important;
         border: 0;
+        border-radius: 0
     }
 
     .riddle-side-nav {

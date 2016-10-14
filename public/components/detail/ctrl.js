@@ -7,7 +7,7 @@
         var detail = this;
         var urlUser = '';
         detail.items = [];
-        detail.greet = "julz";
+        detail.serviceName = $stateParams.serviceName;
         switch ($stateParams.serviceName) {
           case "filter":
             urlUser = 'http://riddle-api.mybluemix.net/api/v1/config/filter';
@@ -24,32 +24,26 @@
           var obj = {};
               obj.data = data;
               console.log(JSON.stringify(obj.data));
-        });
 
-        if (urlUser !== 'undefined') {
-          // your code her
+              angular.forEach(obj.data, function(config, key) {
 
-        $http.get(urlUser).
-               then(function(response) {
+                detail.items.push({
+                  inlineChecked: false,
+                  name: config.name,
+                  threshold: config.threshold,
+                  tresholdtop: config["treshold-top"],
+                  unit:config.unit,
+                  questionPlaceholder: "name"
+                });
 
 
-        angular.forEach(response.data, function(config, key) {
-
-          detail.items.push({
-            inlineChecked: false,
-            name: config.name,
-            threshold: config.threshold,
-            tresholdtop: config["treshold-top"],
-            unit:config.unit,
-            questionPlaceholder: "name"
-          });
-
+              });
 
         });
 
-      })}
+    
                detail.submitForm = function() {
-
+                 console.log('blub');
               }
 
              detail.add = function () {
@@ -64,7 +58,7 @@
                });
              };
 
-        // detail.serviceName = $stateParams.serviceName;
+
         // detail.param1 = $stateParams.param1;
         // detail.param2 = $stateParams.param2;
 

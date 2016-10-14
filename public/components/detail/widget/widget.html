@@ -1,1 +1,50 @@
-<h1>Hello {{widget.greet}}</h1>
+<div class="col-md-12 col-sm-6 col-xs-12">
+    <div class="panel material-panel">
+        <div ng-if="widget.item.name.length > 0" class="panel-heading clearfix material-panel-heading">
+
+            <!-- <h3 class="panel-title">{{detail.serviceName}}</h3> -->
+            <span placeholder=" ">{{widget.item.name}}</span>
+        </div>
+
+        <div class="panel-body">
+            <form class=" row-border" action="#">
+
+                <div class="form-group ">
+
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-xs-2 col-form-label">name</label>
+                        <div class="col-xs-10">
+                            <input class="form-control material-input" type="text " placeholder="name" ng-model="widget.item.name ">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-xs-2 col-form-label">treshold</label>
+                        <div class="col-xs-10">
+                            <input class="form-control material-input" type="text " placeholder="threshold" ng-model="widget.item.threshold ">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-xs-2 col-form-label">treshold-top</label>
+                        <div class="col-xs-10">
+                            <input class="form-control material-input" type="text " placeholder="treshold-top" ng-model="widget.item.tresholdtop ">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-xs-2 col-form-label">unit</label>
+                        <div class="col-xs-10">
+                            <input class="form-control material-input" type="text " placeholder="unit" ng-model="widget.item.unit ">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-xs-2 col-form-label">active</label>
+                        <div class="col-xs-10">
+                            <input class="form-control material-input" type="checkbox" name="check " value="inline " ng-model="widget.item.inlineChecked ">
+                        </div>
+                    </div>
+
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
