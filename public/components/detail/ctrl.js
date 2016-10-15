@@ -3,7 +3,7 @@
       .module('riddle.detail')
       .controller('detail.ctrl', detailCtrl);
 
-      function detailCtrl($stateParams, $http, APIService ) {
+      function detailCtrl($stateParams, $http, APIService, APIpostService ) {
         var detail = this;
         var urlUser = '';
         detail.items = [];
@@ -41,7 +41,7 @@
 
         });
 
-    
+
                detail.submitForm = function() {
                  console.log('blub');
               }

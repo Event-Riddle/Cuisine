@@ -13,7 +13,7 @@
                 <div class="menu-list">
 
                     <ul id="menu-content" class="menu-content collapse out">
-                        <li data-toggle="modal" data-target="#myModal">
+                        <li data-toggle="modal" data-target="#new-filter-modal">
                             <a href="#">
                                 <i class="fa fa-dashboard fa-lg"></i> New {{detail.serviceName}}
                             </a>
@@ -36,6 +36,7 @@
 
                     <div ng-repeat="item in detail.items">
 
+
                         <form-filter form-item="item"></form-filter>
                     </div>
                 </div>
@@ -45,10 +46,9 @@
         </div>
     </div>
 
-
 </div>
 <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="new-filter-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -56,7 +56,7 @@
                 <h4 class="modal-title" id="myModalLabel">{{detail.serviceName}}</h4>
             </div>
             <div class="modal-body">
-                <form-filter form-item="item"></form-filter>
+                <edit-form-filter form-item="item"></edit-form-filter>
                 <!-- <form class="frow-border" action="#">
 
                     <div class="form-group ">
@@ -273,5 +273,52 @@
 
     .riddel-detail-row {
         margin-top: 10px;
+    }
+
+    .legend dt {
+        width: 10px;
+        height: 10px;
+        margin: 4px;
+    }
+
+    .legend dt.failed {
+        background: rgba(231, 76, 60, .7);
+    }
+
+    .failed {
+        background: #E74C3C;
+        animation: pulse-failed 2s infinite;
+    }
+
+    .succeeded {
+        background: #2ECC71;
+    }
+
+    @-webkit-keyframes pulse-failed {
+        0% {
+            -webkit-box-shadow: 0 0 0 0 rgba(231, 76, 60, .7);
+        }
+        70% {
+            -webkit-box-shadow: 0 0 0 5px rgba(231, 76, 60, .7);
+        }
+        100% {
+            -webkit-box-shadow: 0 0 0 0 rgba(231, 76, 60, .7);
+        }
+    }
+
+    @keyframes pulse-failed {
+        0% {
+            -moz-box-shadow: 0 0 0 0 rgba(231, 76, 60, .7));
+            box-shadow: 0 0 0 0 rgba(231, 76, 60, .7);
+        }
+        50% {
+            -moz-box-shadow: 0 0 0 2px rgba(231, 76, 60, .7);
+            box-shadow: 0 0 0 2px rgba(231, 76, 60, .7);
+        }
+        100% {
+            -moz-box-shadow: 0 0 0 5px rgba(231, 76, 60, .7);
+            box-shadow: 0 0 0 5px rgba(231, 76, 60, .10);
+            border-radius: 2px;
+        }
     }
 </style>
