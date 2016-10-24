@@ -10,7 +10,8 @@
   			restrict: 'EA',
   			scope: {
           item: '=formItem',
-          someArray: '@array'
+          someArray: '@array',
+          clickId: '=clickId'
   			},
         templateUrl: 'components/detail/widget/widget.html',
         controller: 'widget.ctrl',

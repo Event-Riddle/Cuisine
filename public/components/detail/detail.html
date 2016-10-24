@@ -13,13 +13,11 @@
                 <div class="menu-list">
 
                     <ul id="menu-content" class="menu-content collapse out">
-                        <li data-toggle="modal" data-target="#new-filter-modal">
+                        <li data-toggle="modal" data-target="#new-filter-modal" ng-click="detail.setModalId(widget.clickId)">
                             <a href="#">
                                 <i class="fa fa-dashboard fa-lg"></i> New {{detail.serviceName}}
                             </a>
                         </li>
-
-
 
                     </ul>
                 </div>
@@ -37,9 +35,13 @@
                     <div ng-repeat="item in detail.items">
 
 
-                        <form-filter form-item="item"></form-filter>
+                        <form-filter form-item="item" click-id='$index'>
+                        </form-filter>
+
+
                     </div>
                 </div>
+
 
 
             </div>
@@ -48,37 +50,12 @@
 
 </div>
 <!-- Modal -->
-<div class="modal fade" id="new-filter-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">{{detail.serviceName}}</h4>
-            </div>
-            <div class="modal-body">
-                <edit-form-filter form-item="item"></edit-form-filter>
-                <!-- <form class="frow-border" action="#">
 
-                    <div class="form-group ">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Email address</label>
-                            <input class="form-control " type="text " placeholder="{{item.questionPlaceholder}} " ng-model="item.name ">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                        </div>
 
-                    </div>
-                </form> -->
-            </div>
-            <div class="modal-footer" style="border-top:none">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" ng-click="detail.add()" data-dismiss="modal">Save changes</button>
-            </div>
-        </div>
-    </div>
-</div>
+<edit-form-filter service-name="{{detail.serviceName}}">
+</edit-form-filter>
+
+
 <style media="screen ">
     .footer {
         position: absolute;
@@ -261,8 +238,8 @@
 
     .material-panel-heading {
         color: #fff !important;
-        background-color: #3299FA !important;
-        border-color: #3299FA !important;
+        background-color: #5EACF7 !important;
+        border-color: #5EACF7 !important;
         border: 0;
         border-radius: 0
     }
@@ -287,37 +264,38 @@
 
     .failed {
         background: #E74C3C;
-        animation: pulse-failed 2s infinite;
+        //animation: pulse-failed 2s infinite;
     }
 
     .succeeded {
         background: #2ECC71;
+        animation: pulse-succeeded 2s infinite;
     }
 
-    @-webkit-keyframes pulse-failed {
+    @-webkit-keyframes pulse-succeeded {
         0% {
-            -webkit-box-shadow: 0 0 0 0 rgba(231, 76, 60, .7);
+            -webkit-box-shadow: 0 0 0 0 rgba(46, 204, 113, .8);
         }
         70% {
-            -webkit-box-shadow: 0 0 0 5px rgba(231, 76, 60, .7);
+            -webkit-box-shadow: 0 0 0 4px rgba(46, 204, 113, .7);
         }
         100% {
-            -webkit-box-shadow: 0 0 0 0 rgba(231, 76, 60, .7);
+            -webkit-box-shadow: 0 0 0 0 rgba(46, 204, 113, .3);
         }
     }
 
-    @keyframes pulse-failed {
+    @keyframes pulse-succeeded {
         0% {
-            -moz-box-shadow: 0 0 0 0 rgba(231, 76, 60, .7));
-            box-shadow: 0 0 0 0 rgba(231, 76, 60, .7);
+            -moz-box-shadow: 0 0 0 0 rgba(46, 204, 113, .8);
+            box-shadow: 0 0 0 0 rgba(46, 204, 113, .8);
         }
         50% {
-            -moz-box-shadow: 0 0 0 2px rgba(231, 76, 60, .7);
-            box-shadow: 0 0 0 2px rgba(231, 76, 60, .7);
+            -moz-box-shadow: 0 0 0 2px rgba(46, 204, 113, .8);
+            box-shadow: 0 0 0 2px rgba(46, 204, 113, .8);
         }
         100% {
-            -moz-box-shadow: 0 0 0 5px rgba(231, 76, 60, .7);
-            box-shadow: 0 0 0 5px rgba(231, 76, 60, .10);
+            -moz-box-shadow: 0 0 0 4px rgba(46, 204, 113, .8);
+            box-shadow: 0 0 0 4px rgba(46, 204, 113, .5);
             border-radius: 2px;
         }
     }

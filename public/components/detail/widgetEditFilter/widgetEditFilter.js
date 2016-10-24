@@ -9,12 +9,12 @@
   		return {
   			restrict: 'EA',
   			scope: {
-          item: '=formItem',
-          someArray: '@array'
+          serviceName: '@serviceName',
+
   			},
         templateUrl: 'components/detail/widgetEditFilter/widgetEditFilter.html',
         controller: 'widgetEditFilter.ctrl',
-        controllerAs: 'widgetEditFilter',
+        controllerAs: 'wef',
         bindToController: true
   		};
   	}

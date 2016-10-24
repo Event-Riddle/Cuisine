@@ -1,91 +1,92 @@
 <div class="col-md-12 col-sm-6 col-xs-12">
     <div class="panel material-panel">
         <div ng-if="widget.item.name.length > 0" class="panel-heading clearfix material-panel-heading">
+            <div class="row">
+
+
+                <h4 placeholder="Item" class="col-md-11 col-xs-11">{{widget.item.name}}</h4>
+
+                <h4 class='btn-toolbar col-md-1 col-xs-1'>
 
 
 
-            <!-- <h3 class="panel-title">{{detail.serviceName}}</h3> -->
-            <h4 placeholder="Item" class="col-md-11 col-xs-11">{{widget.item.name}}</h4>
+                    <div class='btn-group'>
 
+                        <i class="fa fa-times fa-2" aria-hidden="true"></i>
+                    </div>
 
+                </h4>
 
-            <div class='btn-toolbar pull-right col-md-1 col-xs-1'>
-                <div class='btn-group'>
-                    <i class="btn fa fa-cog" aria-hidden="true" type="button" data-toggle="modal" data-target="#myModal"></i>
-                </div>
             </div>
+        </div>
+
+        <div ng-if="widget.item.name.length == undefined || widget.item.name.length == 0" class="panel-heading clearfix material-panel-heading">
+
+            <h4 placeholder="Item" class="col-md-11 col-xs-11">Item</h4>
+
+            <h4 class='btn-toolbar pull-right col-md-1 col-xs-1'>
+                <div class='btn-group'>
+
+                    <i class="btn fa fa-times fa-2" aria-hidden="true"></i>
+                </div>
+            </h4>
 
 
         </div>
-        <div class="panel-body">
-            <form class=" row-border" action="#">
+        <div class="panel-body ">
+            <form id="editForm " class="row-border " ng-submit="form-item ">
 
-                <!-- <div class="form-group ">
+                <div class=" form-group ">
 
-                    <div class="form-group row">
-                        <label for="example-text-input" class="col-xs-2 col-form-label">name</label>
-                        <div class="col-xs-10">
-                            <input class="form-control material-input" type="text " placeholder="name" ng-model="widget.item.name" disabled>
-                        </div>
+                    <div class="form-group row ">
+                        <label for="example-text-input " class="col-xs-6 col-form-label ">Treshold</label>
+                        <label for="example-text-input " class="col-xs-6 col-form-label ">Info</label>
                     </div>
-                    <div class="form-group row">
-                        <label for="example-text-input" class="col-xs-2 col-form-label">treshold</label>
-                        <div class="col-xs-10">
-                            <input class="form-control material-input" type="text " placeholder="threshold" ng-model="widget.item.threshold" disabled>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="example-text-input" class="col-xs-2 col-form-label">treshold-top</label>
-                        <div class="col-xs-10">
-                            <input class="form-control material-input" type="text " placeholder="treshold-top" ng-model="widget.item.tresholdtop" disabled>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="example-text-input" class="col-xs-2 col-form-label">unit</label>
-                        <div class="col-xs-10">
-                            <input class="form-control material-input" type="text " placeholder="unit" ng-model="widget.item.unit" disabled>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="example-text-input" class="col-xs-2 col-form-label">active</label>
-                        <div class="col-xs-10">
-                            <input class="form-control material-input" type="checkbox" name="check " value="inline " ng-model="widget.item.inlineChecked" disabled>
-                        </div>
-                    </div>
-
-                </div> -->
-                <div class="form-group ">
-
-                    <div class="form-group row">
-                        <label for="example-text-input" class="col-xs-6 col-form-label">Treshold</label>
-                        <label for="example-text-input" class="col-xs-6 col-form-label">Info</label>
-                    </div>
-                    <div class="form-group row">
-                        <dl class="dl-horizontal col-xs-6">
+                    <div class="form-group row ">
+                        <dl class="dl-horizontal col-xs-6 ">
                             <dt>Top:</dt>
                             <dd>{{widget.item.tresholdtop}} {{widget.item.unit}}</dd>
                             <dt>Bottom:</dt>
                             <dd>{{widget.item.threshold}} {{widget.item.unit}}</dd>
                         </dl>
-                        <div class="col-xs-6">
-                            <textarea class="form-control" rows="3" disabled></textarea>
+                        <div class="col-xs-6 ">
+                            <textarea class="form-control " rows="3 " disabled></textarea>
 
                         </div>
 
                     </div>
 
                     <div ng-if='widget.item.inlineChecked == true'>
-                        <dl class="legend pull-right">
-                            <dd><b>Acitve</dd><dt class="succeeded"></dt>
-                      </dl>
+                        <div class="row">
+
+                            <div class="col-md-2 col-sm-2">
+                                <span class="actionButtonEdit ripple" data-toggle="modal" data-target="#new-filter-modal" id="{{ 'textField-' + widget.clickId}} " ng-click="widget.setModalId(widget.clickId)">
+                                  <i class="fa fa-cog"> &nbsp</i>
+                                    edit
+                                </span>
+                            </div>
+                            <div class="col-md-2 col-offset-8">
+                                <dl class="legend ">
+                                    <dd><b>Acitve</dd><dt class="succeeded "></dt>
+                                </dl>
+
+                            </div>
+
+                      </div>
+
                   </div>
-                  <div ng-if='widget.item.inlineChecked == false'>
-
-                      <dl class="legend pull-right">
-
-                          <dd><b>Inactive</dd><dt class="failed"></dt>
-
-                      </dl>
+                  <div ng-if='widget.item.inlineChecked == false || widget.item.inlineChecked == undefined'>
+                    <div class="col-md-2 col-sm-2">
+                      <span class="actionButtonEdit ripple" data-toggle="modal" data-target="#new-filter-modal" id="{{ 'textField-' + widget.clickId}} " ng-click="widget.setModalId(widget.clickId)">
+                        <i class="fa fa-cog"> &nbsp</i>
+                          edit
+                      </span>
+                    </div>
+                    <div class="col-md-2 col-offset-8">
+                        <dl class="legend ">
+                                                    <dd><b>Inactive</dd><dt class="failed "></dt>
+                        </dl>
+                    </div>
 
                   </div>
 

@@ -3,48 +3,21 @@
       .module('riddle.detail')
       .controller('detail.ctrl', detailCtrl);
 
-      function detailCtrl($stateParams, $http, APIService, APIpostService ) {
+      function detailCtrl($stateParams, APIService, cuisineDB, $scope, clickedItem) {
         var detail = this;
         var urlUser = '';
         detail.items = [];
         detail.serviceName = $stateParams.serviceName;
-        switch ($stateParams.serviceName) {
-          case "filter":
-            urlUser = 'http://riddle-api.mybluemix.net/api/v1/config/filter';
-            break;
-          default:
-        }
 
-        APIService.api.getConfig({
+        detail.setModalId =  function() {
+          clickedItem.id = null;
+        };
 
-                configType:  $stateParams.serviceName
+        getData();
 
-        }, function (data) {
-        //var sortedData = hcBumblebee.ctfMultiSort(data)
-          var obj = {};
-              obj.data = data;
-              console.log(JSON.stringify(obj.data));
-
-              angular.forEach(obj.data, function(config, key) {
-
-                detail.items.push({
-                  inlineChecked: false,
-                  name: config.name,
-                  threshold: config.threshold,
-                  tresholdtop: config["treshold-top"],
-                  unit:config.unit,
-                  questionPlaceholder: "name"
-                });
-
-
-              });
-
+        $scope.$on('loadReady', function (evt) {
+          getData();
         });
-
-
-               detail.submitForm = function() {
-                 console.log('blub');
-              }
 
              detail.add = function () {
 
@@ -58,9 +31,38 @@
                });
              };
 
+             function getData() {
+               APIService.api.getConfig({
 
-        // detail.param1 = $stateParams.param1;
-        // detail.param2 = $stateParams.param2;
+                       configType:  $stateParams.serviceName
+
+               }, function (data) {
+                 console.log(data);
+
+                 var obj = {};
+                     obj.data = data;
+
+                     //set Data to cDB
+
+                     cuisineDB.addData(JSON.stringify(obj.data))
+
+
+                     detail.items=[];
+                     angular.forEach(JSON.parse(cuisineDB.getData()), function(config, key) {
+                        detail.items.push({
+                         inlineChecked: config.inlineChecked,
+                         name: config.name,
+                         threshold: config.threshold,
+                         tresholdtop: config["treshold-top"],
+                         unit:config.unit,
+                         questionPlaceholder: "name"
+                       });
+
+                     });
+               })
+
+             }
+
 
       }
 })();

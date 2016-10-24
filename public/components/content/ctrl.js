@@ -12,6 +12,11 @@
          // on init fill the ul
         //  var result = JSON.parse(localStorage.getItem("services"));
         //  var result2 = JSON.parse(localStorage.getItem("bus"));
+
+        $(function(){
+           $('.ripple').materialripple();
+        });
+
         var tools=[];
         var chainTools=[];
         cont.toolbar = [];

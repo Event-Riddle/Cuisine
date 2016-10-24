@@ -1,5 +1,7 @@
 (function () {
-  angular.module('riddle.detail',[
+  angular
+      .module('riddle.detail',[
       'ui.router',
-  ]);
+      ])
+      .constant("clickedItem", {id:""});
 })();

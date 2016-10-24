@@ -47,3 +47,89 @@ body {
         stroke-dashoffset: 1000;
     }
 }
+
+.actionButton {
+    border-radius: 0px !important;
+    text-align: center;
+    text-transform: uppercase;
+    background: #5eacf7;
+    color: #26333e;
+    font-size: 14px;
+    cursor: pointer;
+    height: 40px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -o-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    font-weight: 700;
+}
+
+.gateButton {
+    text-align: center;
+    text-transform: uppercase;
+    background: #00B299;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    height: 40px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -o-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    font-weight: 700;
+}
+.actionButtonEdit {
+    border-radius: 0px !important;
+    text-align: center;
+    text-transform: uppercase;
+    background: #008571;
+    color: #26333e;
+    font-size: 14px;
+    cursor: pointer;
+    height: 40px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -o-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    font-weight: 700;
+}
+
+.riddle-border-radius{
+  border-radius: 0px !important;
+}

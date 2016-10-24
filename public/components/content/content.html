@@ -16,7 +16,7 @@
 
                         <div class="col-md-12 col-sm-12 ">
                             <div class="col-md-3 col-sm-3  " ng-repeat='item in tool.items'>
-                                <span style="width:100%; margin:10px; " class=" actionButton" gm-draggable='{ category: tool, item: item }' title="Drag me to the Pipeline!">
+                                <span style="width:100%; margin:10px; " class=" actionButton ripple" gm-draggable='{ category: tool, item: item }' title="Drag me to the Pipeline!">
                               {{item.name}}
                             </span>
 
@@ -54,9 +54,10 @@
                             </blockquote>
                         </div>
                     </div> -->
-                    <div id="gate" class=" gateButton pulse" style="width: 100%; height: 87px; margin-bottom:20px">
+                    <div id="gate" class=" gateButton pulse ripple" style="width: 100%; height: 87px; margin-bottom:20px">
                         Gateway
                     </div>
+
                 </div>
 
 
@@ -94,9 +95,10 @@
                     </div>
                 </div>
                 <div id="wsk" class="col-md-2 " style=" z-index:3;">
-                    <div class=" gateButton pulse" style="width: 100%; height: 87px; margin-bottom:20px;">
+                    <div class=" gateButton pulse ripple" style="width: 100%; height: 87px; margin-bottom:20px;">
                         OpenWhisk
                     </div>
+
                 </div>
             </div>
         </div>
@@ -155,59 +157,5 @@
         to {
             stroke-dashoffset: 1000;
         }
-    }
-
-    .actionButton {
-        text-align: center;
-        text-transform: uppercase;
-        background: #5eacf7;
-        color: #26333e;
-        font-size: 14px;
-        cursor: pointer;
-        height: 40px;
-        display: -webkit-box;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-        -webkit-box-align: center;
-        -moz-box-align: center;
-        -o-box-align: center;
-        -ms-flex-align: center;
-        -webkit-align-items: center;
-        align-items: center;
-        -webkit-box-pack: center;
-        -moz-box-pack: center;
-        -webkit-justify-content: center;
-        -ms-flex-pack: center;
-        justify-content: center;
-        font-weight: 700;
-    }
-
-    .gateButton {
-        text-align: center;
-        text-transform: uppercase;
-        background: #00B299;
-        color: #fff;
-        font-size: 14px;
-        cursor: pointer;
-        height: 40px;
-        display: -webkit-box;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-        -webkit-box-align: center;
-        -moz-box-align: center;
-        -o-box-align: center;
-        -ms-flex-align: center;
-        -webkit-align-items: center;
-        align-items: center;
-        -webkit-box-pack: center;
-        -moz-box-pack: center;
-        -webkit-justify-content: center;
-        -ms-flex-pack: center;
-        justify-content: center;
-        font-weight: 700;
     }
 </style>

@@ -4,6 +4,7 @@
       .controller('struct.ctrl', structCtrl);
 
       function structCtrl() {
+      
         console.log("do somthing");
       }
 })();
