@@ -73,7 +73,7 @@ body {
     -webkit-justify-content: center;
     -ms-flex-pack: center;
     justify-content: center;
-    font-weight: 700;
+    font-weight: 700 !important;
 }
 
 .gateButton {
@@ -100,7 +100,7 @@ body {
     -webkit-justify-content: center;
     -ms-flex-pack: center;
     justify-content: center;
-    font-weight: 700;
+    font-weight: 700 !important;
 }
 .actionButtonEdit {
     border-radius: 0px !important;
@@ -127,7 +127,7 @@ body {
     -webkit-justify-content: center;
     -ms-flex-pack: center;
     justify-content: center;
-    font-weight: 700;
+    font-weight: 700 !important;
 }
 
 .riddle-border-radius{
@@ -382,4 +382,9 @@ can be set to whatever your heart desires */
         box-shadow: 0 0 0 4px rgba(46, 204, 113, .5);
         border-radius: 2px;
     }
+}
+
+.riddle-filter-view{
+  padding-left: 0px !important;
+  padding-right: 30px !important;
 }
