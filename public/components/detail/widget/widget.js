@@ -11,7 +11,9 @@
   			scope: {
           item: '=formItem',
           someArray: '@array',
-          clickId: '=clickId'
+          clickId: '=clickId',
+          serviceName: '@serviceName'
+
   			},
         templateUrl: 'components/detail/widget/widget.html',
         controller: 'widget.ctrl',

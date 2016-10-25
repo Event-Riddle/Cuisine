@@ -5,14 +5,11 @@
 
 
                 <h4 placeholder="Item" class="col-md-11 col-xs-11">{{widget.item.name}}</h4>
-
                 <h4 class='btn-toolbar col-md-1 col-xs-1'>
-
-
 
                     <div class='btn-group'>
 
-                        <i class="clickMe fa fa-times fa-2" aria-hidden="true"></i>
+                        <i class="clickMe fa fa-times fa-2" aria-hidden="true" ng-click="widget.deleteItem(widget.clickId)"></i>
                     </div>
 
                 </h4>
@@ -29,7 +26,7 @@
                 <h4 class='btn-toolbar  col-md-1 col-xs-1'>
                 <div class='btn-group'>
 
-                  <i class="clickMe fa fa-times fa-2" aria-hidden="true"></i>
+                  <i class="clickMe fa fa-times fa-2" aria-hidden="true" ng-click="widget.deleteItem(widget.clickId)"></i>
                 </div>
             </h4>
 

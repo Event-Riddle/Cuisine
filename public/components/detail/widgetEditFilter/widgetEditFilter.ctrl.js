@@ -4,7 +4,7 @@
         .module('riddle.detail')
         .controller('widgetEditFilter.ctrl', widgetEditFilter);
 
-    function widgetEditFilter( $http,APIService, cuisineDB, $rootScope, $scope, clickedItem) {
+    function widgetEditFilter( $http, APIService, cuisineDB, $rootScope, $scope, clickedItem) {
 
         var wef = this;
         $scope.$on('setItemId', function (evt) {
