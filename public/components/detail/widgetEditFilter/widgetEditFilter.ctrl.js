@@ -7,9 +7,8 @@
     function widgetEditFilter( $http, APIService, cuisineDB, $rootScope, $scope, clickedItem) {
 
         var wef = this;
+
         $scope.$on('setItemId', function (evt) {
-
-
 
         var data= cuisineDB.getItem(clickedItem.id);
 
@@ -22,47 +21,43 @@
       });
 
 
+
+      $('#new-filter-modal').on('hidden.bs.modal', function (e) {
+          resetForm()
+      })
+
         wef.submitForm = function(e) {
 
+          var item = {
+            inlineChecked: wef.inlineChecked,
+            name: wef.name,
+            threshold: wef.threshold,
+            "treshold-top": wef.tresholdtop,
+            unit: wef.unit,
+          };
 
 
-        var item = {
-          inlineChecked: wef.inlineChecked,
-          name: wef.name,
-          threshold: wef.threshold,
-          "treshold-top": wef.tresholdtop,
-          unit: wef.unit,
-        };
-        // var item = [{
-        //   inlineChecked: wef.inlineChecked,
-        //   name: wef.name,
-        //   threshold: wef.threshold,
-        //   "treshold-top": wef.tresholdtop,
-        //   unit: wef.unit,
-        // }];
-     var dbData = JSON.parse(cuisineDB.getData());
+          var dbData = JSON.parse(cuisineDB.getData());
 
 
-     if ( clickedItem.id === undefined || clickedItem.id === null) {
-        dbData.push(item);
-     }else {
-        dbData[clickedItem.id] = item;
-     }
+          if ( clickedItem.id === undefined || clickedItem.id === null) {
+            dbData.push(item);
+          }else {
+            dbData[clickedItem.id] = item;
+          }
 
+          APIService.apiPost.postConfig({
 
+            configType:  wef.serviceName
 
-        APIService.apiPost.postConfig({
-
-                configType:  wef.serviceName
-
-        },dbData,function() {
-          console.log('succeeded');
-          $rootScope.$broadcast('loadReady');
-        });
+          },dbData,function() {
+            console.log('succeeded');
+            $rootScope.$broadcast('loadReady');
+          });
 
           resetForm();
-          $('#new-filter-modal').modal('toggle'); ;
-         }
+          $('#new-filter-modal').modal('toggle');
+      }
 
 
 

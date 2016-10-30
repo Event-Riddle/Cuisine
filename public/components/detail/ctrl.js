@@ -4,12 +4,13 @@
       .controller('detail.ctrl', detailCtrl);
 
       function detailCtrl($stateParams, APIService, cuisineDB, $scope, clickedItem) {
+
         var detail = this;
         var urlUser = '';
         detail.items = [];
         detail.serviceName = $stateParams.serviceName;
 
-        detail.setModalId =  function() {
+        detail.setModalId =  function(id) {
           clickedItem.id = null;
         };
 
@@ -37,7 +38,6 @@
                        configType:  $stateParams.serviceName
 
                }, function (data) {
-                 console.log(data);
 
                  var obj = {};
                      obj.data = data;
