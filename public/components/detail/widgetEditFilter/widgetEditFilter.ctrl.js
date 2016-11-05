@@ -20,8 +20,6 @@
 
       });
 
-
-
       $('#new-filter-modal').on('hidden.bs.modal', function (e) {
           resetForm()
       })
