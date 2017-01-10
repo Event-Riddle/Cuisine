@@ -25,8 +25,10 @@
                detail.items.push({
                  inlineChecked: false,
                  name: "",
+                 topId: "",
+                 bottomId: "",
                  threshold: "",
-                 tresholdtop: "",
+                 thresholdtop: "",
                  unit:"",
                  questionPlaceholder: "name"
                });
@@ -52,8 +54,10 @@
                         detail.items.push({
                          inlineChecked: config.inlineChecked,
                          name: config.name,
+                         bottomId: config.bid,
+                         topId: config.tid,
                          threshold: config.threshold,
-                         tresholdtop: config["treshold-top"],
+                         thresholdtop: config["threshold-top"],
                          unit:config.unit,
                          questionPlaceholder: "name"
                        });

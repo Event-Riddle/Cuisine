@@ -14,8 +14,10 @@
 
          wef.inlineChecked=data.inlineChecked;
          wef.name=data.name;
+         wef.bottomId=data.bottomId;
+         wef.topId=data.topId;
          wef.threshold=data.threshold;
-         wef.tresholdtop=data['treshold-top'];
+         wef.thresholdtop=data['threshold-top'];
          wef.unit=data.unit;
 
       });
@@ -29,8 +31,10 @@
           var item = {
             inlineChecked: wef.inlineChecked,
             name: wef.name,
+            bottomId: wef.bottomId,
+            topId:wef.topId,
             threshold: wef.threshold,
-            "treshold-top": wef.tresholdtop,
+            "threshold-top": wef.thresholdtop,
             unit: wef.unit,
           };
 
@@ -63,8 +67,10 @@
         wef.name = null;
         wef.inlineChecked=null;
         wef.name=null;
+        wef.bottomId=null;
+        wef.topId=null;
         wef.threshold=null;
-        wef.tresholdtop=null;
+        wef.thresholdtop=null;
         wef.unit=null;
       }
 
