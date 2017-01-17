@@ -52,12 +52,12 @@
                      detail.items=[];
                      angular.forEach(JSON.parse(cuisineDB.getData()), function(config, key) {
                         detail.items.push({
-                         inlineChecked: config.inlineChecked,
+                         inlineChecked: config.active,
                          name: config.name,
-                         bottomId: config.bid,
-                         topId: config.tid,
-                         threshold: config.threshold,
-                         thresholdtop: config["threshold-top"],
+                         "filter-bottom-id": config["filter-bottom-id"],
+                         "filter-top-id": config["filter-top-id"],
+                         "threshold-value-top": config["threshold-value-top"],
+                         "threshold-value-bottom": config["threshold-value-bottom"],
                          unit:config.unit,
                          questionPlaceholder: "name"
                        });

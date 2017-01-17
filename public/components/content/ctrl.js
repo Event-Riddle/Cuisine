@@ -9,6 +9,7 @@
 
          var cont = this;
          var urlUser = 'http://riddle-api.mybluemix.net/api/v1/config/user';
+         var urlLuculus='http://lucullus.mybluemix.net/api/v1/start';
          // on init fill the ul
         //  var result = JSON.parse(localStorage.getItem("services"));
         //  var result2 = JSON.parse(localStorage.getItem("bus"));
@@ -104,5 +105,17 @@
 
     }).resize();
 
+    cont.activate =  function() {
+      console.log('activate');
+      $http({
+          method: 'POST',
+          url: urlLuculus,
+          headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+      });
+    };
+
+    cont.deactivate =  function() {
+      console.log('deactivate');
+    };
   }
 })();

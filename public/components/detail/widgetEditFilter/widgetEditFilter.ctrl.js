@@ -12,12 +12,12 @@
 
         var data= cuisineDB.getItem(clickedItem.id);
 
-         wef.inlineChecked=data.inlineChecked;
+         wef.inlineChecked=data.active;
          wef.name=data.name;
-         wef.bottomId=data.bottomId;
-         wef.topId=data.topId;
-         wef.threshold=data.threshold;
-         wef.thresholdtop=data['threshold-top'];
+         wef.bottomId=data['filter-bottom-id'];
+         wef.topId=data['filter-top-id'];
+         wef.threshold = data['threshold-value-bottom'];
+         wef.thresholdtop=data['threshold-value-top'];
          wef.unit=data.unit;
 
       });
@@ -29,12 +29,12 @@
         wef.submitForm = function(e) {
 
           var item = {
-            inlineChecked: wef.inlineChecked,
+            active: wef.inlineChecked,
             name: wef.name,
-            bottomId: wef.bottomId,
-            topId:wef.topId,
-            threshold: wef.threshold,
-            "threshold-top": wef.thresholdtop,
+            "filter-bottom-id": wef.bottomId,
+            "filter-top-id":wef.topId,
+            "threshold-value-top": wef.threshold,
+            "threshold-value-bottom": wef.thresholdtop,
             unit: wef.unit,
           };
 
