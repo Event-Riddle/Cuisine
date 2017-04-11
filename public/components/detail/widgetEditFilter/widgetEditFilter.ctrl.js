@@ -14,7 +14,6 @@
 
          wef.inlineChecked=data.active;
          wef.name=data.name;
-         wef.bottomId=data['filter-bottom-id'];
          wef.topId=data['filter-top-id'];
          wef.threshold = data['threshold-value-bottom'];
          wef.thresholdtop=data['threshold-value-top'];
@@ -31,10 +30,9 @@
           var item = {
             active: wef.inlineChecked,
             name: wef.name,
-            "filter-bottom-id": wef.bottomId,
             "filter-top-id":wef.topId,
-            "threshold-value-top": wef.threshold,
-            "threshold-value-bottom": wef.thresholdtop,
+            "threshold-value-top": wef.thresholdtop,
+            "threshold-value-bottom": wef.threshold,
             unit: wef.unit,
           };
 
@@ -67,7 +65,6 @@
         wef.name = null;
         wef.inlineChecked=null;
         wef.name=null;
-        wef.bottomId=null;
         wef.topId=null;
         wef.threshold=null;
         wef.thresholdtop=null;

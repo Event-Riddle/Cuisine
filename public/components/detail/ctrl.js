@@ -26,7 +26,6 @@
                  inlineChecked: false,
                  name: "",
                  topId: "",
-                 bottomId: "",
                  threshold: "",
                  thresholdtop: "",
                  unit:"",
@@ -54,7 +53,6 @@
                         detail.items.push({
                          inlineChecked: config.active,
                          name: config.name,
-                         "filter-bottom-id": config["filter-bottom-id"],
                          "filter-top-id": config["filter-top-id"],
                          "threshold-value-top": config["threshold-value-top"],
                          "threshold-value-bottom": config["threshold-value-bottom"],
