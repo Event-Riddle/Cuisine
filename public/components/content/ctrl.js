@@ -9,8 +9,9 @@
 
          var cont = this;
          var urlUser = 'http://riddle-api.mybluemix.net/api/v1/config/user';
-         var urlLuculus='http://lucullus.mybluemix.net/api/v1/start';
-         // on init fill the ul
+         var urlLuculus = 'http://lucullus.mybluemix.net/api/v1/start';
+         var urlDeactivate = 'http://lucullus.mybluemix.net/api/v1/stop';
+        // on init fill the ul
         //  var result = JSON.parse(localStorage.getItem("services"));
         //  var result2 = JSON.parse(localStorage.getItem("bus"));
 
@@ -116,6 +117,11 @@
 
     cont.deactivate =  function() {
       console.log('deactivate');
+      $http({
+          method: 'POST',
+          url: urlDeactivate,
+          headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+      });
     };
   }
 })();
