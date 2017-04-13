@@ -12,12 +12,13 @@
 
         var data= cuisineDB.getItem(clickedItem.id);
 
-         wef.inlineChecked=data.active;
-         wef.name=data.name;
-         wef.topId=data['filter-top-id'];
+         wef.inlineChecked = data.active;
+         wef.name = data.name;
+         wef.topId = data['filter-top-id'];
          wef.threshold = data['threshold-value-bottom'];
-         wef.thresholdtop=data['threshold-value-top'];
-         wef.unit=data.unit;
+         wef.thresholdtop = data['threshold-value-top'];
+         wef.filtering = data['filtering'];
+         wef.unit = data.unit;
 
       });
 
@@ -33,6 +34,7 @@
             "filter-top-id":wef.topId,
             "threshold-value-top": wef.thresholdtop,
             "threshold-value-bottom": wef.threshold,
+            filtering: wef.filtering,
             unit: wef.unit,
           };
 
@@ -69,7 +71,8 @@
         wef.threshold=null;
         wef.thresholdtop=null;
         wef.unit=null;
-      }
+        wef.filtering='exclude'
 
-  	}
+      }
+    }
 })();

@@ -29,6 +29,7 @@
                  threshold: "",
                  thresholdtop: "",
                  unit:"",
+                 filtering: 'exclude',
                  questionPlaceholder: "name"
                });
              };
@@ -57,6 +58,7 @@
                          "threshold-value-top": config["threshold-value-top"],
                          "threshold-value-bottom": config["threshold-value-bottom"],
                          unit:config.unit,
+                         filtering: config.filtering,
                          questionPlaceholder: "name"
                        });
 
