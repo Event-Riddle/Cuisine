@@ -15,38 +15,42 @@
 
                                 <div class="form-group ">
 
-                                    <div class="form-group row">
+                                    <div ng-if="wef.serviceName == 'filter'" class="form-group row">
                                         <label class="col-xs-2 col-form-label">name</label>
                                         <div class="col-xs-10">
                                             <input class="form-control material-input" type="text " placeholder="name" ng-model="wef.name">
 
                                         </div>
                                     </div>
-                                    <div class="form-group row">
+
+                                    <div ng-if="wef.serviceName == 'filter'"  class="form-group row">
                                         <label class="col-xs-2 col-form-label">topId</label>
                                         <div class="col-xs-10">
-                                            <input class="form-control material-input" type="text " placeholder="topId" ng-model="wef.topId">
+                                            <input class="form-control material-input" type="text " placeholder="top id" ng-model="wef.topId">
                                         </div>
                                     </div>
-                                    <div class="form-group row">
+
+                                    <div  ng-if="wef.serviceName == 'filter'" class="form-group row">
                                         <label class="col-xs-2 col-form-label">threshold</label>
                                         <div class="col-xs-10">
                                             <input class="form-control material-input" type="text " placeholder="threshold" ng-model="wef.threshold">
                                         </div>
                                     </div>
-                                    <div class="form-group row">
-                                        <label class="col-xs-2 col-form-label">thresholdTop</label>
+
+                                    <div ng-if="wef.serviceName == 'filter'"  class="form-group row">
+                                        <label class="col-xs-2 col-form-label">threshold top</label>
                                         <div class="col-xs-10">
                                             <input class="form-control material-input" type="text " placeholder="threshold-top" ng-model="wef.thresholdtop">
                                         </div>
                                     </div>
-                                    <div class="form-group row">
+
+                                    <div ng-if="wef.serviceName == 'filter'" class="form-group row">
                                         <label class="col-xs-2 col-form-label">unit</label>
                                         <div class="col-xs-10">
                                             <input class="form-control material-input" type="text " placeholder="unit" ng-model="wef.unit">
                                         </div>
                                     </div>
-                                    <div class="form-group row">
+                                    <div ng-if="wef.serviceName == 'filter'" class="form-group row">
                                         <label class="col-xs-2 col-form-label">message</label>
                                         <div class="col-xs-4">
                                           <input type="radio" ng-model="wef.filtering" value="include"> include<br>
@@ -58,6 +62,49 @@
                                         </div>
                                     </div>
 
+                                    <div ng-if="wef.serviceName == 'correlator'" class="form-group row">
+                                        <label class="col-xs-2 col-form-label">name</label>
+                                        <div class="col-xs-10">
+                                            <input class="form-control material-input" type="text " placeholder="name" ng-model="wef.cname">
+
+                                        </div>
+                                    </div>
+                                    <div ng-if="wef.serviceName == 'correlator'"  class="form-group row">
+                                        <label class="col-xs-2 col-form-label">match id</label>
+                                        <div class="col-xs-10">
+                                            <input class="form-control material-input" type="text " placeholder="matcher id" ng-model="wef.matcherId">
+                                        </div>
+                                    </div>
+                                    <div  ng-if="wef.serviceName == 'correlator'" class="form-group row">
+                                        <label class="col-xs-2 col-form-label">matcher Value</label>
+                                        <div class="col-xs-10">
+                                            <input class="form-control material-input" type="text " placeholder="matcher value" ng-model="wef.matcherValue">
+                                        </div>
+                                    </div>
+                                    <div ng-if="wef.serviceName == 'correlator'"  class="form-group row">
+                                        <label class="col-xs-2 col-form-label">pitch</label>
+                                        <div class="col-xs-10">
+                                            <input class="form-control material-input" type="text " placeholder="pitch" ng-model="wef.pitch">
+                                        </div>
+                                    </div>
+                                    <div ng-if="wef.serviceName == 'correlator'"  class="form-group row">
+                                        <label class="col-xs-2 col-form-label">time treshold</label>
+                                        <div class="col-xs-10">
+                                            <input class="form-control material-input" type="text " placeholder="time treshold" ng-model="wef.timeTreshold">
+                                        </div>
+                                    </div>
+                                    <div ng-if="wef.serviceName == 'correlator'"  class="form-group row">
+                                        <label class="col-xs-2 col-form-label">timestamp</label>
+                                        <div class="col-xs-10">
+                                            <input class="form-control material-input" type="text " placeholder="timestamp" ng-model="wef.timestamp">
+                                        </div>
+                                    </div>
+                                    <div ng-if="wef.serviceName == 'correlator'"  class="form-group row">
+                                        <label class="col-xs-2 col-form-label">timestamp format</label>
+                                        <div class="col-xs-10">
+                                            <input class="form-control material-input" type="text " placeholder="timestamp format" ng-model="wef.timestampFormat">
+                                        </div>
+                                    </div>
                                 </div>
 
                             </form>

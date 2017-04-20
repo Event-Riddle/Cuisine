@@ -31,7 +31,7 @@
             <div ui-view=" ">
 
                 <div class="row riddel-detail-row">
-
+                  <div ng-if= "detail.serviceName == 'filter'">
                     <div ng-repeat="item in detail.items">
 
 
@@ -40,6 +40,18 @@
 
 
                     </div>
+                  </div>
+                  <div ng-if="detail.serviceName == 'correlator'">
+                    <div ng-repeat="item in detail.citems">
+
+
+                        <form-filter service-name="{{detail.serviceName}}" form-item="item" click-id='$index'>
+                        </form-filter>
+
+
+                    </div>
+                  </div>
+
                 </div>
 
 

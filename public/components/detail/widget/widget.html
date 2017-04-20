@@ -3,7 +3,6 @@
         <div ng-if="widget.item.name.length > 0" class="panel-heading clearfix material-panel-heading">
             <div class="row">
 
-
                 <h4 placeholder="Item" class="col-md-11 col-xs-11">{{widget.item.name}}</h4>
                 <h4 class='btn-toolbar col-md-1 col-xs-1'>
 
@@ -38,15 +37,24 @@
                 <div class=" form-group ">
 
                     <div class="form-group row ">
-                        <label for="example-text-input " class="col-xs-6 col-form-label ">Threshold</label>
+                        <label ng-if="widget.serviceName == 'filter'" for="example-text-input " class="col-xs-6 col-form-label ">Threshold</label>
+                        <label ng-if="widget.serviceName == 'correlator'" for="example-text-input " class="col-xs-6 col-form-label ">correlator configuration</label>
                         <label for="example-text-input " class="col-xs-6 col-form-label ">Info</label>
                     </div>
                     <div class="form-group row ">
-                        <dl class="dl-horizontal col-xs-6 ">
+                        <dl ng-if="widget.serviceName == 'filter'" class="dl-horizontal col-xs-6 ">
                             <dt>Top:</dt>
                             <dd>{{widget.item["threshold-value-top"]}} {{widget.item.unit}}</dd>
                             <dt>Bottom:</dt>
                             <dd>{{widget.item["threshold-value-bottom"]}} {{widget.item.unit}}</dd>
+                        </dl>
+                        <dl ng-if="widget.serviceName == 'correlator'" class="dl-horizontal col-xs-6 ">
+                            <dt>Name:</dt>
+                            <dd>{{widget.item["name"]}} </dd>
+                            <dt>Match ID:</dt>
+                            <dd>{{widget.item["matcher_id"]}} </dd>
+                            <dt>Matcher value:</dt>
+                            <dd>{{widget.item["matcher_value"]}} </dd>
                         </dl>
                         <div class="col-xs-6 ">
                             <textarea class="form-control " rows="3 " disabled></textarea>
@@ -64,7 +72,7 @@
                                     edit
                                 </span>
                             </div>
-                            <div class="col-md-offset-8 col-sm-offset-8">
+                            <div ng-if="widget.serviceName == 'filter'" class="col-md-offset-8 col-sm-offset-8">
 
                                 <dl class="dl-horizontal status col-md-6 col-xs-6">
                                     <dt>Acitve:</dt>
@@ -83,7 +91,7 @@
                           edit
                       </span>
                         </div>
-                        <div class="col-md-offset-8 col-sm-offset-8">
+                        <div ng-if="widget.serviceName == 'filter'" class="col-md-offset-8 col-sm-offset-8">
                             <dl class="dl-horizontal status col-md-6 col-xs-6">
                                 <dt>Inactive:</dt>
                                 <dd class="failed">
