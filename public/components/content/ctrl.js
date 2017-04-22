@@ -3,17 +3,14 @@
        .module('riddle.content')
        .controller('cont.ctrl', contCtrl);
 
-       function contCtrl($http) {
+       function contCtrl($http, $rootScope) {
 
-         //localStorage.clear();
+        var cont = this;
+        var urlUser = 'http://riddle-api.mybluemix.net/api/v1/config/user';
+        var urlLuculus = 'http://lucullus.mybluemix.net/api/v1/start';
+        var urlDeactivate = 'http://lucullus.mybluemix.net/api/v1/stop';
+        var ws = 'ws://lucullus.mybluemix.net/count';
 
-         var cont = this;
-         var urlUser = 'http://riddle-api.mybluemix.net/api/v1/config/user';
-         var urlLuculus = 'http://lucullus.mybluemix.net/api/v1/start';
-         var urlDeactivate = 'http://lucullus.mybluemix.net/api/v1/stop';
-        // on init fill the ul
-        //  var result = JSON.parse(localStorage.getItem("services"));
-        //  var result2 = JSON.parse(localStorage.getItem("bus"));
 
         $(function(){
            $('.ripple').materialripple();
@@ -23,6 +20,36 @@
         var chainTools=[];
         cont.toolbar = [];
         cont.chain = [];
+        cont.gateWay = 0;
+        cont.opw = 0;
+
+        //websockets
+        ws = new WebSocket(ws);
+
+       ws.onopen = function (e) {
+         console.log("onopen:", arguments);
+       };
+
+       ws.onclose = function (e) {
+         console.log("onclose:", arguments);
+       };
+
+       ws.onmessage = function (e) {
+
+         var data = JSON.parse(e.data);
+        console.log(data);
+
+           $rootScope.$apply(function() {
+             cont.gateWay = data['count_in'];
+            cont.opw = data['count_out'];
+          });
+       };
+
+       ws.onerror = function (e) {
+         console.log(e);
+         console.log("onerror:", arguments);
+       };
+
 
         $http.get(urlUser).
                   then(function(response) {
@@ -38,9 +65,6 @@
                                  ];
                   cont.checkSvg();
                 });
-
-
-
 
     cont.checkSvg= function() {
 
@@ -61,7 +85,6 @@
     cont.checkSvg();
     cont.getDropHandler = function(category) {
 
-
       return function(dragOb) {
         if(category.items.indexOf(dragOb.item) < 0) {
 
@@ -73,23 +96,22 @@
 
 
           var data = {
-                            chain:cont.chain[0].items,
-                            toolbar:cont.toolbar[0].items
-          }
+                        chain:cont.chain[0].items,
+                        toolbar:cont.toolbar[0].items
+                      }
 
           $http({
-              method: 'POST',
-              url: urlUser,
-              data: data,
-              headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-          });
+                  method: 'POST',
+                  url: urlUser,
+                  data: data,
+                  headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+              });
 
 
           return true;  // Returning truthy value since we're modifying the view model
         }
       }
     }
-
 
     //set svg line
     $(window).resize(function() {
@@ -101,11 +123,11 @@
       var pos1 = el1.getBoundingClientRect();
       var pos2 = el2.getBoundingClientRect();
 
-    //  line1.attr('x1',pos1.left).attr('y1',0).attr('x2',pos2.left).attr('y2',0);
       line1.attr('d',"M"+pos1.left+",0 H"+pos2.left+",0");
 
     }).resize();
 
+    //activate and deactivate event-handler chain
     cont.activate =  function() {
       console.log('activate');
       $http({
