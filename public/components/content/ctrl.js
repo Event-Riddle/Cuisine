@@ -23,8 +23,9 @@
         cont.gateWay = 0;
         cont.opw = 0;
         cont.dps = [
-          { label: "GateWay",  y: 1  },
           { label: "OpenWhisk", y: 1  },
+          { label: "GateWay",  y: 1  },
+
         ];
 
         //canvasJS
@@ -34,10 +35,15 @@
           // 	text: "incoming and outgoing messages"
           // },
           animationEnabled: false,   // change to true
+
+          axisY:{
+            minimum: 0,
+            maximum: 1000
+          },
           data: [
           {
             // Change type to "bar", "area", "spline", "pie",etc.
-            type: "column",
+            type: "bar",
             dataPoints: cont.dps
           }
           ]
@@ -66,8 +72,9 @@
             //   { label: "GateWay",  y: cont.gateWay  },
             //   { label: "OpenWhisk", y: cont.opw  },
             // ];
-            cont.dps[0] = { label: "GateWay",  y: cont.gateWay  };
-            cont.dps[1] = { label: "OpenWhisk", y: cont.opw  };
+            cont.dps[0] = { label: "OpenWhisk", y: cont.opw  };
+            cont.dps[1] = { label: "GateWay",  y: cont.gateWay  };
+
 
             chart.render();
           });
