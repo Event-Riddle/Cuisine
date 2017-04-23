@@ -22,6 +22,27 @@
         cont.chain = [];
         cont.gateWay = 0;
         cont.opw = 0;
+        cont.dps = [
+          { label: "GateWay",  y: 1  },
+          { label: "OpenWhisk", y: 1  },
+        ];
+
+        //canvasJS
+        var chart = new CanvasJS.Chart("chartContainer", {
+          theme: 'theme2',
+          // title:{
+          // 	text: "incoming and outgoing messages"
+          // },
+          animationEnabled: false,   // change to true
+          data: [
+          {
+            // Change type to "bar", "area", "spline", "pie",etc.
+            type: "column",
+            dataPoints: cont.dps
+          }
+          ]
+        });
+        chart.render();
 
         //websockets
         ws = new WebSocket(ws);
@@ -37,12 +58,20 @@
        ws.onmessage = function (e) {
 
          var data = JSON.parse(e.data);
-        console.log(data);
 
            $rootScope.$apply(function() {
-             cont.gateWay = data['count_in'];
+            cont.gateWay = data['count_in'];
             cont.opw = data['count_out'];
+            // cont.dps =  [
+            //   { label: "GateWay",  y: cont.gateWay  },
+            //   { label: "OpenWhisk", y: cont.opw  },
+            // ];
+            cont.dps[0] = { label: "GateWay",  y: cont.gateWay  };
+            cont.dps[1] = { label: "OpenWhisk", y: cont.opw  };
+
+            chart.render();
           });
+      //    chart.render();
        };
 
        ws.onerror = function (e) {
